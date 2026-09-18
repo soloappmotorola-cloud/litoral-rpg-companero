@@ -4,14 +4,14 @@ const tabs = document.querySelectorAll(".tab-btn");
 function cardArquetipo(a) {
   return `
     <article class="card" tabindex="0">
-      <div class="card-cara card-frente">
-        <div class="card-arte ${a.img ? "" : "card-arte--vacia"}"
-             style="${a.img ? `background-image:url('${a.img}')` : ""}">
-          ${a.img ? "" : `<span class="card-arte-placeholder">${a.nombre[0]}</span>`}
+      <div class="card-cara card-frente ${a.img ? "" : "card-frente--vacia"}"
+           style="${a.img ? `background-image:url('${a.img}')` : ""}">
+        ${a.img ? "" : `<span class="card-arte-placeholder">${a.nombre[0]}</span>`}
+        <div class="card-frente-info">
+          <h2>${a.nombre}</h2>
+          <p class="card-raiz">raíz folclórica: ${a.raiz}</p>
+          <p class="card-toque">tocá para ver la ficha ↴</p>
         </div>
-        <h2>${a.nombre}</h2>
-        <p class="card-raiz">raíz folclórica: ${a.raiz}</p>
-        <p class="card-toque">tocá para ver la ficha ↴</p>
       </div>
       <div class="card-cara card-dorso">
         <h3>${a.nombre}</h3>
@@ -28,13 +28,13 @@ function cardArquetipo(a) {
 function cardBestia(b) {
   return `
     <article class="card" tabindex="0">
-      <div class="card-cara card-frente">
-        <div class="card-arte ${b.img ? "" : "card-arte--vacia"}"
-             style="${b.img ? `background-image:url('${b.img}')` : ""}">
-          ${b.img ? "" : `<span class="card-arte-placeholder">${b.nombre[0]}</span>`}
+      <div class="card-cara card-frente ${b.img ? "" : "card-frente--vacia"}"
+           style="${b.img ? `background-image:url('${b.img}')` : ""}">
+        ${b.img ? "" : `<span class="card-arte-placeholder">${b.nombre[0]}</span>`}
+        <div class="card-frente-info">
+          <h2>${b.nombre}</h2>
+          <p class="card-toque">tocá para ver la ficha ↴</p>
         </div>
-        <h2>${b.nombre}</h2>
-        <p class="card-toque">tocá para ver la ficha ↴</p>
       </div>
       <div class="card-cara card-dorso">
         <h3>${b.nombre}</h3>

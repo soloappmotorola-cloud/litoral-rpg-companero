@@ -147,10 +147,30 @@ body::before {
   overflow: hidden;
 }
 .card { position: relative; transform-style: preserve-3d; }
-.card-frente { transform: rotateY(0deg); }
+.card-frente {
+  transform: rotateY(0deg);
+  justify-content: flex-end;
+  background-size: cover;
+  background-position: center top;
+  padding: 0;
+}
 .card-dorso  { transform: rotateY(180deg); }
 .card.is-flipped .card-frente { transform: rotateY(-180deg); }
 .card.is-flipped .card-dorso  { transform: rotateY(0deg); }
+
+.card-frente--vacia {
+  align-items: center;
+  justify-content: center;
+  background: repeating-linear-gradient(135deg, rgba(240,200,119,0.06) 0 10px, transparent 10px 20px);
+}
+.card-frente--vacia .card-frente-info { position: static; background: none; padding: 0 0.9rem 0.9rem; }
+
+.card-frente-info {
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  padding: 1.6rem 0.8rem 0.7rem;
+  background: linear-gradient(180deg, transparent, rgba(10, 14, 6, 0.55) 35%, rgba(10, 14, 6, 0.88));
+}
 
 /* Detalle de "carta legendaria": esquina dorada tipo pergamino cortado */
 .card-cara::after {
@@ -165,21 +185,6 @@ body::before {
   opacity: 0.85;
 }
 
-.card-arte {
-  height: 46%;
-  border-radius: 8px;
-  margin-bottom: 0.6rem;
-  background-size: cover;
-  background-position: center;
-  background-color: rgba(0,0,0,0.2);
-}
-.card-arte--vacia {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: repeating-linear-gradient(135deg, rgba(240,200,119,0.06) 0 10px, transparent 10px 20px);
-  border: 1px dashed var(--vidrio-borde);
-}
 .card-arte-placeholder {
   font-family: "Cinzel", serif;
   font-size: 1.8rem;
