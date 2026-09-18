@@ -45,12 +45,36 @@ function cardBestia(b) {
     </article>`;
 }
 
+function cardPnj(p) {
+  return `
+    <article class="card" tabindex="0">
+      <div class="card-cara card-frente ${p.img ? "" : "card-frente--vacia"}"
+           style="${p.img ? `background-image:url('${p.img}')` : ""}">
+        ${p.img ? "" : `<span class="card-arte-placeholder">${p.nombre[0]}</span>`}
+        <div class="card-frente-info">
+          <h2>${p.nombre}</h2>
+          <p class="card-toque">tocá para ver la ficha ↴</p>
+        </div>
+      </div>
+      <div class="card-cara card-dorso">
+        <h3>${p.nombre}</h3>
+        <p>${p.rol}</p>
+        <p><strong>Reputación:</strong> ${p.reputacion}</p>
+        <p><strong>Ofrenda/trato:</strong> ${p.ofrenda}</p>
+      </div>
+    </article>`;
+}
+
 function vistaPersonajes() {
   return `<section class="grid">${ARQUETIPOS.map(cardArquetipo).join("")}</section>`;
 }
 
 function vistaBestiario() {
   return `<section class="grid">${BESTIARIO.map(cardBestia).join("")}</section>`;
+}
+
+function vistaPnj() {
+  return `<section class="grid">${PNJ.map(cardPnj).join("")}</section>`;
 }
 
 function vistaReglas() {
@@ -75,7 +99,7 @@ function vistaReglas() {
     </section>`;
 }
 
-const VISTAS = { personajes: vistaPersonajes, bestiario: vistaBestiario, reglas: vistaReglas };
+const VISTAS = { personajes: vistaPersonajes, bestiario: vistaBestiario, pnj: vistaPnj, reglas: vistaReglas };
 
 function mostrarTab(nombre) {
   contenido.innerHTML = VISTAS[nombre]();

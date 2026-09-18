@@ -132,6 +132,37 @@ const BESTIARIO = [
   }
 ];
 
+const PNJ = [
+  {
+    nombre: "Pombero",
+    img: "img/pombero.webp",
+    rol: "Espíritu del monte, se mueve sin ser visto y conoce todos sus sonidos.",
+    reputacion: "Nunca se lo vence peleando (Aguante 12, Defensa 11 — casi imposible de tocar): se lo aplaca o se lo evita.",
+    ofrenda: "Tabaco, miel, caña con cascarilla de huevo. Respetar el monte de noche/siesta sube su Reputación; entrar sin permiso o cazar de más la baja."
+  },
+  {
+    nombre: "Dueño de los Animales",
+    img: "img/dueno-de-los-animales.webp",
+    rol: "Guardián de la fauna del monte, protector de quienes cazan solo lo necesario.",
+    reputacion: "No tiene estadísticas de combate — no ataca, castiga la caza excesiva escondiendo presas y bajando Reputación.",
+    ofrenda: "Cazar con mesura y devolver algo al monte. No hay ofrenda material fija: se gana con la conducta del grupo, no con un objeto."
+  },
+  {
+    nombre: "El dueño del río",
+    img: "img/dueno-del-rio.webp",
+    rol: "Entidad de remolinos y corrientes del Paraná, presagio fluvial en noches de niebla o creciente.",
+    reputacion: "Igual que el Pombero: se resuelve por Reputación, no por combate. Nombrarlo al atardecer o cruzar sin respeto es una falta documentada.",
+    ofrenda: "Tabaco, miel, caña con cascarilla de huevo. Respetar horarios y pasos seguros del río lo mantiene favorable."
+  },
+  {
+    nombre: "Brujas isleñas / curanderas",
+    img: "img/brujas-islenas.webp",
+    rol: "Mujeres de saberes de yuyos y curación, reinterpretadas en la oralidad como brujas con poder sobre el clima y la salud.",
+    reputacion: "Su poder depende de la reputación que tengan en el pueblo — se las puede desacreditar, ganar como aliadas o temer como antagonistas.",
+    ofrenda: "Hospitalidad y yerba compartida. También sube o baja según cómo el grupo hable de ellas frente al pueblo (defenderlas o acusarlas en público)."
+  }
+];
+
 const REGLAS_RAPIDAS = {
   formula: "2d6 + Atributo + Oficio (si aplica) vs. Dificultad",
   dificultades: [
