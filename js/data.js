@@ -9,7 +9,7 @@ const ARQUETIPOS = [
   {
     nombre: "El Guardamonte",
     raiz: "Kurupí",
-    img: "img/guardamonte.jpg",
+    img: "img/guardamonte.webp",
     resumen: "Protector del monte y de quien no puede defenderse. Cuerpo a cuerpo, resistente, feroz cuando hay una injusticia de por medio.",
     prioridad: "Fuerza, Vigor",
     oficios: "Monte, Forcejeo y pelea",
@@ -18,7 +18,7 @@ const ARQUETIPOS = [
   {
     nombre: "El Sigiloso de la Noche",
     raiz: "Pombero",
-    img: "img/sigiloso-de-la-noche.jpg",
+    img: "img/sigiloso-de-la-noche.webp",
     resumen: "Se mueve sin ser visto, conoce los sonidos del monte, negocia con lo que no se puede pelear. Ambivalente por diseño.",
     prioridad: "Destreza, Alma",
     oficios: "Sigilo, Trato con espíritus",
@@ -27,7 +27,7 @@ const ARQUETIPOS = [
   {
     nombre: "El Gaucho Matrero",
     raiz: "montoneras entrerrianas",
-    img: "img/gaucho-matrero.jpg",
+    img: "img/gaucho-matrero.webp",
     resumen: "Jinete, rastreador, perseguido por alguna ley que ya no reconoce. Guerrero versátil de raíz criolla, no sobrenatural.",
     prioridad: "Destreza, Fuerza",
     oficios: "Equitación, Rastreo",
@@ -36,7 +36,7 @@ const ARQUETIPOS = [
   {
     nombre: "La Curandera Isleña",
     raiz: "brujas isleñas",
-    img: "img/curandera-islena.jpg",
+    img: "img/curandera-islena.webp",
     resumen: "Sabe de yuyos, de señales del cielo y del río. Cura, a veces maldice, siempre depende de lo que dicen de ella en el pueblo.",
     prioridad: "Alma, Astucia",
     oficios: "Herboristería y curación, Trato con espíritus",
@@ -45,7 +45,7 @@ const ARQUETIPOS = [
   {
     nombre: "El Trovador del Monte",
     raiz: "Zorro/Aguará",
-    img: "img/trovador-del-monte.jpg",
+    img: "img/trovador-del-monte.webp",
     resumen: "Pícaro, hablador, gana peleas con la cabeza antes que con las manos. El cuentacuentos del grupo.",
     prioridad: "Astucia, Alma",
     oficios: "Relato y canto, Conocimiento del folclore",
@@ -54,7 +54,7 @@ const ARQUETIPOS = [
   {
     nombre: "El Isleño / Hachero",
     raiz: "isleño y hachero",
-    img: "img/isleno-hachero.jpg",
+    img: "img/isleno-hachero.webp",
     resumen: "Gente práctica de río y monte ribereño, sin nada sobrenatural: cuchillo, canoa, obraje a cuestas.",
     prioridad: "Vigor, Ojo de Monte",
     oficios: "Río y remo, Artesanía",
@@ -83,49 +83,49 @@ const ARQUETIPOS = [
 const BESTIARIO = [
   {
     nombre: "Moñái",
-    img: "img/monai.jpg",
+    img: "img/monai.webp",
     stats: "Aguante 24 · Defensa 9 · Ataque +3, dos golpes/ronda · Frente máx. 3",
     rasgo: "Vuela y ataca al paso; huye bajo la mitad de Aguante.",
     alternativa: "Reforzar el sello de Pa'i Zume (Astucia o Alma, Dificultad 9) evita el combate."
   },
   {
     nombre: "Jasy Jatere",
-    img: "img/jasy-jatere.jpg",
+    img: "img/jasy-jatere.webp",
     stats: "Aguante 10 · Defensa 9 · Hipnotiza (Alma vs. Astucia+2)",
     rasgo: "No está pensado para matarlo.",
     alternativa: "Se lo aleja con ruido (Dificultad 9) o se le roba el bastón de oro (Destreza, Dificultad 11), fuente real de su poder."
   },
   {
     nombre: "Teju Jagua",
-    img: "img/teju-jagua.jpg",
+    img: "img/teju-jagua.webp",
     stats: "Aguante 24 · Defensa 10 · Ataque +2, dos mordiscos/ronda · Frente máx. 1 (boca de cueva angosta)",
     rasgo: "Sedentario: nunca persigue fuera de su cueva.",
     alternativa: "Ofrenda de frutas silvestres (Dificultad 9) evita el enfrentamiento por completo."
   },
   {
     nombre: "Mbói Tu'i",
-    img: "img/mboi-tui.jpg",
+    img: "img/mboi-tui.webp",
     stats: "Aguante 22 · Defensa 9 · Ataque +3 · Frente máx. 3",
     rasgo: "Huye ante fuego o ruido fuerte.",
     alternativa: "Puede volverse aliado de un pueblo agrícola con buena Reputación."
   },
   {
     nombre: "Kurupí",
-    img: "img/kurupi.jpg",
+    img: "img/kurupi.webp",
     stats: "Aguante 28 · Defensa 10 · Ataque +4 · Frente máx. 2",
     rasgo: "Solo ataca a quien lastimó el monte o amenazó a alguien indefenso.",
     alternativa: "Su hostilidad depende de las acciones previas del grupo, no es fija."
   },
   {
     nombre: "Ao Ao",
-    img: "img/ao-ao.jpg",
+    img: "img/ao-ao.webp",
     stats: "Aguante 26 · Defensa 12 · Ataque +4, actúa dos veces/ronda · Frente máx. 2",
     rasgo: "Cuero correoso: solo un éxito pleno le hace daño real. No puede trepar.",
     alternativa: "Diseñado para ser casi imposible de ganar peleando: la solución real es llegar a una palmera pindó (Destreza, Dificultad 9, bajo presión de tiempo)."
   },
   {
     nombre: "Luison",
-    img: "img/luison.jpg",
+    img: "img/luison.webp",
     stats: "Aguante 28 · Defensa 13 · Ataque +4 · Frente máx. 3",
     rasgo: "Sin plata no hay herida que valga: con arma común, un éxito con costo no cuenta. Con plata, cualquier golpe que conecte es real.",
     alternativa: "\"Salvarlo\" con un ritual de apadrinamiento (Alma, Dificultad 13) rompe la maldición sin matarlo."
