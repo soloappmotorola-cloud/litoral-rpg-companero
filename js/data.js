@@ -63,7 +63,7 @@ const ARQUETIPOS = [
   {
     nombre: "El Centinela del Estero",
     raiz: "Chajá",
-    img: null,
+    img: "img/centinela-del-estero.webp",
     resumen: "Gente de esteros y bañados, oído entrenado para la primera señal de peligro. Expansión (sección 14.1).",
     prioridad: "Ojo de Monte, Alma",
     oficios: "Rastreo, Monte",
@@ -72,7 +72,7 @@ const ARQUETIPOS = [
   {
     nombre: "El Hijo del Yaguareté",
     raiz: "Yaguareté",
-    img: null,
+    img: "img/hijo-del-yaguarete.webp",
     resumen: "Carga con algo del monte más bravo: fuerza totémica que hay que aprender a controlar. Expansión (sección 14.1).",
     prioridad: "Fuerza, Alma",
     oficios: "Forcejeo y pelea, Conocimiento del folclore",
