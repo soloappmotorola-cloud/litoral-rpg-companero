@@ -1,0 +1,309 @@
+/* Paleta tomada de la dirección de arte del proyecto (reglas/fichas/prompts-ilustraciones-ia.md):
+   tierras, verdes de monte, dorados de atardecer, marrones de barro y agua de río. */
+:root {
+  --noche: #182710;
+  --monte: #2f4a2c;
+  --monte-claro: #4f6b3f;
+  --rio: #4a3a26;
+  --dorado: #c9974a;
+  --dorado-claro: #f0c877;
+  --pergamino: #efe6cd;
+  --texto: #f4ecd8;
+  --texto-suave: #cfc4a4;
+  --vidrio: rgba(244, 236, 216, 0.08);
+  --vidrio-borde: rgba(240, 200, 119, 0.28);
+  --sombra: rgba(10, 14, 6, 0.45);
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  height: 100%;
+  overscroll-behavior: none;
+}
+
+body {
+  font-family: "Nunito Sans", system-ui, sans-serif;
+  color: var(--texto);
+  background:
+    radial-gradient(ellipse at 20% -10%, rgba(240, 200, 119, 0.10), transparent 55%),
+    linear-gradient(180deg, var(--noche) 0%, var(--monte) 55%, var(--rio) 100%);
+  background-attachment: fixed;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Textura de niebla/grano sutil sobre el fondo, sin pesar (SVG generado en CSS, no una imagen) */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.05;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='120'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+}
+
+/* --- Luciérnagas: detalle dinámico de fondo, propio del monte litoraleño de noche --- */
+.fireflies {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+.fireflies span {
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--dorado-claro);
+  box-shadow: 0 0 8px 2px var(--dorado-claro);
+  opacity: 0;
+  animation: flotar 9s ease-in-out infinite, brillar 3s ease-in-out infinite;
+}
+.fireflies span:nth-child(1) { left: 8%;  top: 70%; animation-delay: 0s, 0.2s; }
+.fireflies span:nth-child(2) { left: 22%; top: 30%; animation-delay: 1.2s, 0.6s; }
+.fireflies span:nth-child(3) { left: 38%; top: 80%; animation-delay: 2.4s, 1s; }
+.fireflies span:nth-child(4) { left: 55%; top: 20%; animation-delay: 0.6s, 1.4s; }
+.fireflies span:nth-child(5) { left: 68%; top: 60%; animation-delay: 3s, 0.4s; }
+.fireflies span:nth-child(6) { left: 80%; top: 35%; animation-delay: 1.8s, 1.8s; }
+.fireflies span:nth-child(7) { left: 90%; top: 75%; animation-delay: 2.6s, 0.8s; }
+.fireflies span:nth-child(8) { left: 48%; top: 50%; animation-delay: 0.4s, 2.2s; }
+
+@keyframes flotar {
+  0%   { transform: translate(0, 0); }
+  50%  { transform: translate(14px, -22px); }
+  100% { transform: translate(0, 0); }
+}
+@keyframes brillar {
+  0%, 100% { opacity: 0; }
+  50%      { opacity: 0.9; }
+}
+
+/* --- Encabezado --- */
+.app-header {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: 1.6rem 1rem 1rem;
+}
+.app-header h1 {
+  font-family: "Cinzel", serif;
+  font-size: 1.6rem;
+  letter-spacing: 0.06em;
+  margin: 0;
+  color: var(--dorado-claro);
+  text-shadow: 0 2px 10px var(--sombra);
+}
+.app-header h1 span { color: var(--texto); }
+.subtitulo {
+  margin: 0.3rem 0 0;
+  font-size: 0.85rem;
+  color: var(--texto-suave);
+  letter-spacing: 0.02em;
+}
+
+/* --- Contenido --- */
+.contenido {
+  position: relative;
+  z-index: 1;
+  flex: 1;
+  padding: 0.5rem 1rem 6rem;
+  max-width: 720px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 0.9rem;
+}
+
+/* --- Tarjetas: vidrio traslúcido + flip 3D al tocar --- */
+.card {
+  aspect-ratio: 3 / 4.2;
+  perspective: 1200px;
+  cursor: pointer;
+}
+.card-cara {
+  position: absolute;
+  inset: 0;
+  border-radius: 14px;
+  backface-visibility: hidden;
+  transition: transform 0.6s cubic-bezier(0.4, 0.2, 0.2, 1);
+  padding: 0.9rem;
+  display: flex;
+  flex-direction: column;
+  background: var(--vidrio);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid var(--vidrio-borde);
+  box-shadow: 0 8px 24px var(--sombra);
+  overflow: hidden;
+}
+.card { position: relative; transform-style: preserve-3d; }
+.card-frente { transform: rotateY(0deg); }
+.card-dorso  { transform: rotateY(180deg); }
+.card.is-flipped .card-frente { transform: rotateY(-180deg); }
+.card.is-flipped .card-dorso  { transform: rotateY(0deg); }
+
+/* Detalle de "carta legendaria": esquina dorada tipo pergamino cortado */
+.card-cara::after {
+  content: "";
+  position: absolute;
+  top: -18px;
+  right: -18px;
+  width: 46px;
+  height: 46px;
+  background: linear-gradient(135deg, var(--dorado-claro), var(--dorado));
+  transform: rotate(45deg);
+  opacity: 0.85;
+}
+
+.card-arte {
+  height: 46%;
+  border-radius: 8px;
+  margin-bottom: 0.6rem;
+  background-size: cover;
+  background-position: center;
+  background-color: rgba(0,0,0,0.2);
+}
+.card-arte--vacia {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: repeating-linear-gradient(135deg, rgba(240,200,119,0.06) 0 10px, transparent 10px 20px);
+  border: 1px dashed var(--vidrio-borde);
+}
+.card-arte-placeholder {
+  font-family: "Cinzel", serif;
+  font-size: 1.8rem;
+  color: var(--dorado-claro);
+  opacity: 0.6;
+}
+
+.card h2 {
+  font-family: "Cinzel", serif;
+  font-size: 1rem;
+  margin: 0 0 0.2rem;
+  color: var(--dorado-claro);
+}
+.card h3 {
+  font-family: "Cinzel", serif;
+  font-size: 1.05rem;
+  margin: 0 0 0.4rem;
+  color: var(--dorado-claro);
+}
+.card-raiz {
+  font-size: 0.72rem;
+  color: var(--texto-suave);
+  margin: 0;
+  font-style: italic;
+}
+.card-toque {
+  margin-top: auto;
+  font-size: 0.68rem;
+  color: var(--texto-suave);
+  opacity: 0.8;
+}
+.card-dorso {
+  font-size: 0.78rem;
+  overflow-y: auto;
+}
+.card-dorso p { margin: 0 0 0.5rem; line-height: 1.35; }
+.card-dorso dl { margin: 0.4rem 0 0; font-size: 0.74rem; }
+.card-dorso dt { color: var(--dorado); font-weight: 800; margin-top: 0.35rem; }
+.card-dorso dd { margin: 0.1rem 0 0; color: var(--texto-suave); }
+.card-stats { font-size: 0.72rem; color: var(--dorado-claro); }
+
+/* --- Reglas rápidas --- */
+.panel-reglas {
+  background: var(--vidrio);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid var(--vidrio-borde);
+  border-radius: 16px;
+  padding: 1.2rem;
+}
+.formula-destacada {
+  font-family: "Cinzel", serif;
+  text-align: center;
+  font-size: 1.05rem;
+  color: var(--dorado-claro);
+  background: rgba(0,0,0,0.2);
+  border: 1px solid var(--vidrio-borde);
+  border-radius: 10px;
+  padding: 0.8rem;
+  margin-bottom: 1rem;
+}
+.panel-reglas h3 {
+  font-family: "Cinzel", serif;
+  font-size: 0.95rem;
+  color: var(--dorado);
+  border-bottom: 1px solid var(--vidrio-borde);
+  padding-bottom: 0.3rem;
+  margin: 1.1rem 0 0.6rem;
+}
+.tabla-reglas { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.tabla-reglas td { padding: 0.35rem 0.2rem; border-bottom: 1px dashed var(--vidrio-borde); }
+.tabla-reglas td:last-child { text-align: right; color: var(--dorado-claro); font-weight: 800; }
+.resultado-item { margin-bottom: 0.7rem; }
+.resultado-nombre { margin: 0; font-weight: 800; color: var(--dorado-claro); font-size: 0.85rem; }
+.resultado-cond { font-weight: 400; color: var(--texto-suave); font-size: 0.75rem; }
+.resultado-efecto { margin: 0.15rem 0 0; font-size: 0.8rem; color: var(--texto-suave); }
+.nota-reglas {
+  margin-top: 1rem;
+  font-size: 0.78rem;
+  font-style: italic;
+  color: var(--texto-suave);
+  border-top: 1px solid var(--vidrio-borde);
+  padding-top: 0.7rem;
+}
+
+/* --- Barra de navegación inferior, vidrio flotante --- */
+.tab-bar {
+  position: fixed;
+  left: 50%;
+  bottom: 0.9rem;
+  transform: translateX(-50%);
+  z-index: 2;
+  display: flex;
+  gap: 0.3rem;
+  padding: 0.4rem;
+  background: rgba(24, 39, 16, 0.55);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid var(--vidrio-borde);
+  border-radius: 999px;
+  box-shadow: 0 10px 30px var(--sombra);
+}
+.tab-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.1rem;
+  border: none;
+  background: transparent;
+  color: var(--texto-suave);
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 0.66rem;
+  font-weight: 800;
+  padding: 0.5rem 0.9rem;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: color 0.2s, background 0.2s;
+}
+.tab-icono { font-size: 1.15rem; line-height: 1; }
+.tab-btn.is-active {
+  color: var(--noche);
+  background: linear-gradient(180deg, var(--dorado-claro), var(--dorado));
+}
+
+@media (min-width: 640px) {
+  .grid { grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); }
+}
