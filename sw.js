@@ -33,7 +33,7 @@ self.addEventListener("fetch", (evento) => {
     return;
   }
   evento.respondWith(
-    fetch(evento.request)
+    fetch(evento.request, { cache: "reload" })
       .then((respuesta) => {
         const copia = respuesta.clone();
         caches.open(CACHE).then((cache) => cache.put(evento.request, copia));
