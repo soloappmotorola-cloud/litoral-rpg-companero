@@ -323,10 +323,9 @@ body::before {
 
 /* --- Barra de navegación inferior, vidrio flotante --- */
 .tab-bar {
-  position: fixed;
-  left: 50%;
+  position: sticky;
   bottom: 0.9rem;
-  transform: translateX(-50%);
+  align-self: center;
   z-index: 2;
   display: flex;
   gap: 0.3rem;
