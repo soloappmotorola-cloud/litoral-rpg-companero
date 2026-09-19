@@ -107,7 +107,7 @@ const BESTIARIO = [
     img: "img/mboi-tui.webp",
     stats: "Aguante 22 · Defensa 9 · Ataque +3 · Frente máx. 3",
     rasgo: "Huye ante fuego o ruido fuerte.",
-    alternativa: "Puede volverse aliado de un pueblo agrícola con buena Reputación."
+    alternativa: "Puede volverse aliado de una comunidad pescadora/isleña con buena Reputación."
   },
   {
     nombre: "Kurupí",
