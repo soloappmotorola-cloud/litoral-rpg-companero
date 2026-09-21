@@ -17,10 +17,20 @@
 
 * { box-sizing: border-box; }
 
+/* La app es de una sola pantalla, como una app nativa: el DOCUMENTO no se scrollea nunca.
+   `min-height: 100vh` en el body hacía que, con la barra de direcciones de Android a la vista,
+   el body midiera ~100px más que lo visible y esos px quedaran arrastrables; y `overflow-x: hidden`
+   solo (sin overflow-y) hace que el navegador convierta el otro eje en `auto`, volviendo scrolleable
+   todo el documento. Si algo no entra, el scroll pasa adentro de `.contenido`. */
 html, body {
   margin: 0;
-  height: 100%;
   overscroll-behavior: none;
+}
+
+html {
+  height: 100%;
+  overflow: hidden;
+  background: var(--noche);
 }
 
 body {
@@ -29,12 +39,12 @@ body {
   background:
     radial-gradient(ellipse at 20% -10%, rgba(240, 200, 119, 0.10), transparent 55%),
     linear-gradient(180deg, var(--noche) 0%, var(--monte) 55%, var(--rio) 100%);
-  background-attachment: fixed;
-  min-height: 100vh;
+  height: 100vh;
+  height: 100dvh;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
   position: relative;
-  overflow-x: hidden;
 }
 
 /* Textura de niebla/grano sutil sobre el fondo, sin pesar (SVG generado en CSS, no una imagen) */
@@ -88,8 +98,9 @@ body::before {
 .app-header {
   position: relative;
   z-index: 1;
+  flex: 0 0 auto;
   text-align: center;
-  padding: 1.6rem 1rem 1rem;
+  padding: calc(1.6rem + env(safe-area-inset-top, 0px)) 1rem 1rem;
 }
 .app-header h1 {
   font-family: "Cinzel", serif;
@@ -111,8 +122,13 @@ body::before {
 .contenido {
   position: relative;
   z-index: 1;
-  flex: 1;
-  padding: 0.5rem 1rem 6rem;
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+  padding: 0.5rem 1rem;
   max-width: 720px;
   margin: 0 auto;
   width: 100%;
@@ -322,10 +338,12 @@ body::before {
 }
 
 /* --- Barra de navegación inferior, vidrio flotante --- */
+/* Ya no es `sticky`: es el último ítem del flex del body, que mide exactamente la pantalla. */
 .tab-bar {
-  position: sticky;
-  bottom: 0.9rem;
+  position: relative;
+  flex: 0 0 auto;
   align-self: center;
+  margin-bottom: calc(0.9rem + env(safe-area-inset-bottom, 0px));
   z-index: 2;
   display: flex;
   gap: 0.3rem;
