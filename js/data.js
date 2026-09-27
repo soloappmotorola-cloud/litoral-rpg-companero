@@ -52,16 +52,16 @@ const ARQUETIPOS = [
     don: "Zorro viejo — una vez por escena, repite una tirada social o de engaño que falló."
   },
   {
-    nombre: "El Isleño / Hachero",
-    raiz: "isleño y hachero",
-    img: "img/isleno-hachero.webp",
+    nombre: "La Isleña / Hachera",
+    raiz: "isleña y hachera",
+    img: "img/islena-hachera.webp",
     resumen: "Gente práctica de río y monte ribereño, sin nada sobrenatural: cuchillo, canoa, obraje a cuestas.",
     prioridad: "Vigor, Ojo de Monte",
     oficios: "Río y remo, Artesanía",
     don: "Sabe arreglárselas — fabrica o improvisa una herramienta simple (Artesanía, Dificultad 9) en vez de tenerla comprada."
   },
   {
-    nombre: "El Centinela del Estero",
+    nombre: "La Centinela del Estero",
     raiz: "Chajá",
     img: "img/centinela-del-estero.webp",
     resumen: "Gente de esteros y bañados, oído entrenado para la primera señal de peligro. Expansión (sección 14.1).",
