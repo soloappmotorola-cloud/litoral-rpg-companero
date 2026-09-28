@@ -1,7 +1,7 @@
 {
-  "name": "Calabozos y Dragones (Litoral) — Compañero de mesa",
-  "short_name": "Litoral RPG",
-  "description": "Fichas de personajes, bestiario y reglas rápidas para jugar Calabozos y Dragones (Litoral).",
+  "name": "Leyendas y Monstruos — Litoral",
+  "short_name": "Litoral",
+  "description": "Fichas de personajes, bestiario y reglas rápidas para jugar Leyendas y Monstruos — Litoral.",
   "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",
