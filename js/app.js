@@ -20,6 +20,7 @@ function cardArquetipo(a) {
           <dt>Prioridad</dt><dd>${a.prioridad}</dd>
           <dt>Oficios</dt><dd>${a.oficios}</dd>
           <dt>Don</dt><dd>${a.don}</dd>
+          <dt>Don nivel 4</dt><dd>${a.don4}</dd>
         </dl>
       </div>
     </article>`;

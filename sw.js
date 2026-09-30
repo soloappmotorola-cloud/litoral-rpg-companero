@@ -1,4 +1,4 @@
-const CACHE = "litoral-rpg-v4";
+const CACHE = "litoral-rpg-v5";
 const ARCHIVOS = [
   "./",
   "./index.html",
