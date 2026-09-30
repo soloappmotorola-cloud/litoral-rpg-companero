@@ -177,9 +177,19 @@ const REGLAS_RAPIDAS = {
     ["Trivial", 5], ["Fácil", 7], ["Media", 9], ["Difícil", 11], ["Heroica", 13], ["Legendaria", 14]
   ],
   resultados: [
-    ["Éxito pleno", "Total ≥ Dificultad + 3, o doble 6 natural", "Lo lográs sin costo. En ataque: daño completo + efecto extra menor."],
-    ["Éxito con costo", "Total ≥ Dificultad, por menos de 3", "Lo conseguís, pero pasa algo más: recurso gastado, Reputación que baja, quedás expuesto."],
+    ["Éxito pleno", "Total ≥ Dificultad + 3, o doble 6 natural", "Lo lográs sin costo. En ataque: daño completo + efecto extra menor. El doble 6 siempre es éxito pleno y en ataque siempre pega."],
+    ["Éxito con costo", "Total ≥ Dificultad, por menos de 3", "Lo conseguís, pero pasa algo más: gastás un recurso, el ser toma nota de vos, quedás expuesto, se te va el tiempo."],
     ["Fracaso", "Total < Dificultad", "No lo conseguís. El peligro de la escena avanza."]
+  ],
+  combate: [
+    ["Iniciativa", "1d6 + Destreza, una sola vez; el orden queda fijo. Los seres del Narrador actúan al final de cada ronda."],
+    ["Turno", "Una Acción y un Movimiento (el Movimiento puede cambiarse por una acción menor)."],
+    ["Ataque", "2d6 + Fuerza o Destreza (según el arma) + Oficio vs. Defensa. Éxito con costo: daño a la mitad, redondeado hacia arriba."],
+    ["Derribado", "Aguante 0: cada ronda 2d6 + Vigor vs. 9. Pleno se estabiliza; con costo sigue igual; fracaso pierde un aliento de vida (al tercero, muere). Un aliado puede estabilizarlo con su Acción."]
+  ],
+  descansos: [
+    ["Descanso corto", "Recupera 1d6 de Aguante. Se puede hacer uno después de cada combate o peligro grande, no dos seguidos."],
+    ["Noche segura", "Recupera todo el Aguante y borra los alientos de vida perdidos."]
   ],
   nota: "Heroica y Legendaria son casi imposibles con modificador total 0 — son el techo del juego, para el especialista de la escena."
 };

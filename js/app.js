@@ -112,6 +112,20 @@ function vistaReglas() {
           <p class="resultado-efecto">${efecto}</p>
         </div>`).join("")}
 
+      <h3>Combate</h3>
+      ${r.combate.map(([n, t]) => `
+        <div class="resultado-item">
+          <p class="resultado-nombre">${n}</p>
+          <p class="resultado-efecto">${t}</p>
+        </div>`).join("")}
+
+      <h3>Descansos</h3>
+      ${r.descansos.map(([n, t]) => `
+        <div class="resultado-item">
+          <p class="resultado-nombre">${n}</p>
+          <p class="resultado-efecto">${t}</p>
+        </div>`).join("")}
+
       <p class="nota-reglas">${r.nota}</p>
     </section>`;
 }
